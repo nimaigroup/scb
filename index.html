@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Cruz Botanicals — Organic Seaweed Art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-sea: #0f2c28;
+            --ocean-teal: #1e4d46;
+            --sea-foam: #3d7a70;
+            --sand-light: #f7f5f0;
+            --sand-accent: #e8e3d9;
+            --text-dark: #1b2624;
+            --text-muted: #4a5d59;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--sand-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background: #ffffff;
+            margin: auto;
+            /* Balanced vertical padding (28px top & bottom) for equal spacing */
+            padding: 28px 40px 28px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(15, 44, 40, 0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            font-style: italic;
+            color: var(--ocean-teal);
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 290px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+
+        .launch-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.25rem;
+            font-style: italic; /* Italicized Organic Sea Art */
+            letter-spacing: 1.5px;
+            text-transform: capitalize;
+            color: var(--deep-sea);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            width: 55px;
+            height: 2px;
+            background-color: var(--sea-foam);
+            margin: 0 auto 16px;
+            opacity: 0.6;
+        }
+
+        .copyright-text {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-top: 0;
+        }
+
+        /* HIDDEN ARTIST STATEMENT VIA DISPLAY NONE */
+        .artist-statement {
+            display: none;
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 40px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--deep-sea);
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .artist-statement p {
+            margin-bottom: 18px;
+        }
+
+        /* Mobile responsive behavior */
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 20px 24px 20px;
+            }
+            .logo {
+                max-width: 260px;
+                margin-bottom: 6px;
+            }
+            .launch-text {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main class="container">
+    <p class="tagline">Bring the beauty and tranquility of the ocean into your home.</p>
+
+    <img src="assets/logo/SC_Botanicals_Logo_transparent.png" alt="Santa Cruz Botanicals Logo" class="logo">
+
+    <p class="launch-text">Organic Sea Art</p>
+
+    <div class="divider"></div>
+
+    <p class="copyright-text">&copy; 2026 Santa Cruz Botanicals LLC. All rights reserved.</p>
+
+    <!-- Hidden Artist Statement section -->
+    <section class="artist-statement">
+        <h2 class="section-title" style="text-align: center;">Artist Statement</h2>
+        <p>I am Adi Svara Welch, the founder of Santa Cruz Botanicals. I am a retired biology teacher with over 30 years of teaching experience, and lifelong admirer of the ocean.</p>
+        <p>I create organic art using pressed seaweed collected from our local beaches of Santa Cruz, California.</p>
+        <p>Each piece is a unique expression of the ocean’s beauty, available in a variety of sizes, along with fine art prints that allow more people to bring a piece of the sea into their homes.</p>
+        <p>My mission is to share the wonder of marine life through art, inspire ocean education and conservation, and capture the deep sense of peace and connection we feel when standing beside the ocean.</p>
+        <p>Through my work, I hope to bring that same tranquility, beauty, and spirit of the sea into your home, wherever you may be.</p>
+    </section>
+</main>
+
+</body>
+</html>
