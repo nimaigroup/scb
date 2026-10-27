@@ -1,0 +1,59 @@
+{
+  "theme": {
+    "deepSea": "#0f2c28",
+    "oceanTeal": "#1e4d46",
+    "seaFoam": "#3d7a70",
+    "sandLight": "#f7f5f0",
+    "sandAccent": "#e8e3d9",
+    "textDark": "#1b2624",
+    "textMuted": "#4a5d59"
+  },
+  "branding": {
+    "siteTitle": "Santa Cruz Botanicals — Organic Sea Art",
+    "tagline": "Bring the beauty and tranquility of the ocean into your home.",
+    "logoSrc": "assets/logo/SC_Botanicals_Logo_transparent.png",
+    "logoAlt": "Santa Cruz Botanicals Logo",
+    "launchText": "Organic Sea Art"
+  },
+  "artistStatement": {
+    "buttonLabel": "Artist Statement",
+    "paragraphs": [
+      "My name is Adi Svara Welch, the founder of Santa Cruz Botanicals. I am a lifelong admirer of the ocean and a retired biology teacher with over 30 years in the classroom.",
+      "I create organic sea art using pressed seaweed collected from our local beaches of Santa Cruz, California.",
+      "Each piece is a unique expression of the ocean’s beauty, available in a variety of sizes, along with fine art prints that allow more people to bring a piece of the sea into their homes.",
+      "My mission is to share the wonder of marine life through art, inspire ocean education and conservation, and capture the deep sense of peace and connection we feel when standing beside the ocean.",
+      "Through my work, I hope to bring that same tranquility, beauty, and spirit of the sea into your home, wherever you may be."
+    ]
+  },
+  "gallery": [
+    {
+      "id": "art-01",
+      "title": "Organic Sea Art No. 1",
+      "image": "assets/gallery/gallery_img_01.jpg",
+      "alt": "Pressed sea lace artwork in a light wood frame"
+    },
+    {
+      "id": "art-02",
+      "title": "Santa Cruz Bay Feather Boa",
+      "image": "assets/gallery/gallery_img_02.jpg",
+      "alt": "Pressed feather boa kelp artwork"
+    },
+    {
+      "id": "art-03",
+      "title": "Santa Cruz Coastal Flora",
+      "image": "assets/gallery/gallery_img_03.jpg",
+      "alt": "Pressed coastal marine botanical"
+    },
+    {
+      "id": "art-04",
+      "title": "Ocean Breeze Botanical",
+      "image": "assets/gallery/gallery_img_04.jpg",
+      "alt": "Organic pressed seaweed art"
+    }
+  ],
+  "footer": {
+    "copyrightText": "© 2026 Santa Cruz Botanicals LLC. All rights reserved.",
+    "creditLabel": "Another NIMAI GROUP WebArt Masterpiece℠",
+    "creditUrl": "https://nimaigroup.com"
+  }
+}

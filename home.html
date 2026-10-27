@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Cruz Botanicals — Organic Sea Art</title>
+
+    <!-- Meta Tags for SEO & Social Cards -->
+    <meta name="description" content="Organic sea art created using pressed seaweed collected from the beaches of Santa Cruz, California.">
+    <meta property="og:title" content="Santa Cruz Botanicals — Organic Sea Art">
+    <meta property="og:description" content="Bring the beauty and tranquility of the ocean into your home.">
+    <meta property="og:image" content="assets/logo/SC_Botanicals_Logo_transparent.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="loading">
+
+<main class="container">
+    <p id="siteTagline" class="tagline"></p>
+
+    <img id="siteLogo" src="" alt="" class="logo">
+
+    <h1 id="siteLaunchText" class="launch-text"></h1>
+
+    <!-- Carousel Gallery Section -->
+    <section class="carousel-section" aria-label="Artwork Gallery">
+        <div class="carousel-wrapper">
+            <button id="carouselPrev" class="carousel-btn prev" aria-label="Previous Image">❮</button>
+
+            <div id="carouselTrack" class="carousel-track">
+                <!-- Dynamically populated via config -->
+            </div>
+
+            <button id="carouselNext" class="carousel-btn next" aria-label="Next Image">❯</button>
+        </div>
+
+        <div id="carouselCaption" class="carousel-caption"></div>
+        <div id="carouselDots" class="carousel-dots"></div>
+    </section>
+
+    <!-- Interactive Expanding Divider -->
+    <div id="dividerLine" class="divider"></div>
+
+    <!-- Toggle Button -->
+    <button id="toggleStatementBtn" class="toggle-btn" aria-expanded="false" aria-controls="artistStatement">
+        <span id="statementBtnLabel">Artist Statement</span>
+        <span class="arrow">▼</span>
+    </button>
+
+    <!-- Collapsible Artist Statement section -->
+    <section id="artistStatement" class="artist-statement">
+        <!-- Dynamically populated via config -->
+    </section>
+</main>
+
+<footer>
+    <p id="copyrightText" class="copyright-text"></p>
+    <a id="nimaiSMLink" class="nimai-sm-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

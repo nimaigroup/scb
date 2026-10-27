@@ -1,0 +1,343 @@
+:root {
+    --deep-sea: #0f2c28;
+    --ocean-teal: #1e4d46;
+    --sea-foam: #3d7a70;
+    --sand-light: #f7f5f0;
+    --sand-accent: #e8e3d9;
+    --text-dark: #1b2624;
+    --text-muted: #4a5d59;
+    --font-display: 'Montserrat', sans-serif;
+    --transition-smooth: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: 0.25s ease;
+    --accent-color: #1e4d46;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Layout & Initial Load Animation */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--sand-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 32px 24px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.loading {
+    opacity: 0;
+}
+
+.container {
+    max-width: 650px;
+    width: 100%;
+    background: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 36px 40px 36px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 44, 40, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-style: italic;
+    color: var(--ocean-teal);
+    margin-bottom: 24px;
+}
+
+.logo {
+    max-width: 430px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 16px;
+}
+
+.launch-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.25rem;
+    font-style: italic;
+    letter-spacing: 1.5px;
+    text-transform: capitalize;
+    color: var(--deep-sea);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-top: 6px;
+    margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   Carousel Styling (Peep View & Side Previews)
+   ========================================================================== */
+.carousel-section {
+    width: 100%;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 10px 10%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-slide {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--sand-light);
+    box-shadow: 0 4px 15px rgba(15, 44, 40, 0.08);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+    cursor: pointer;
+    user-select: none;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+/*noinspection ALL*/
+.carousel-slide.active {
+    transform: scale(1.02);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--sand-accent);
+    color: var(--deep-sea);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.carousel-btn:hover {
+    background: var(--ocean-teal);
+    color: #ffffff;
+    border-color: var(--ocean-teal);
+}
+
+.carousel-btn.prev { left: 4px; }
+.carousel-btn.next { right: 4px; }
+
+.carousel-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ocean-teal);
+    margin-top: 10px;
+    min-height: 1.5em;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--sand-accent);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+/*noinspection ALL*/
+.dot.active {
+    background-color: var(--ocean-teal);
+    transform: scale(1.25);
+}
+
+/* ==========================================================================
+   Divider & Statement Toggle
+   ========================================================================== */
+.divider {
+    width: 55px;
+    height: 2px;
+    background-color: var(--sea-foam);
+    margin: 0 auto 20px;
+    opacity: 0.6;
+    transition: width var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+/*noinspection ALL*/
+.divider.expanded {
+    width: 100%;
+    opacity: 0.3;
+}
+
+.toggle-btn {
+    background: transparent;
+    border: 1px solid var(--sea-foam);
+    color: var(--deep-sea);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+}
+
+.toggle-btn:hover {
+    background-color: var(--ocean-teal);
+    color: #ffffff;
+    border-color: var(--ocean-teal);
+    box-shadow: 0 4px 12px rgba(15, 44, 40, 0.12);
+}
+
+.toggle-btn .arrow {
+    font-size: 0.85rem;
+    transition: transform var(--transition-fast);
+    display: inline-block;
+}
+
+/*noinspection ALL*/
+.toggle-btn.active .arrow {
+    transform: rotate(180deg);
+}
+
+.artist-statement {
+    display: none;
+    text-align: left;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/*noinspection ALL*/
+.artist-statement.show {
+    display: block;
+}
+
+.artist-statement p {
+    margin-bottom: 18px;
+}
+
+.artist-statement p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 28px;
+    margin-bottom: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.copyright-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.nimai-sm-link {
+    font-family: var(--font-display), sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a9a96;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.nimai-sm-link:hover,
+.nimai-sm-link:focus-visible {
+    color: var(--accent-color);
+}
+
+/* Responsive Behavior */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 16px;
+        justify-content: flex-start;
+    }
+    .container {
+        margin-top: 16px;
+        margin-bottom: 0;
+        padding: 28px 16px 28px 16px;
+    }
+    .logo {
+        max-width: 320px;
+        margin-bottom: 12px;
+    }
+    .launch-text {
+        font-size: 2.3rem;
+    }
+    .carousel-slide {
+        flex: 0 0 85%;
+    }
+    .carousel-track {
+        padding: 10px 7.5%;
+    }
+    .toggle-btn {
+        font-size: 1rem;
+        padding: 6px 18px;
+    }
+    footer {
+        margin-top: 20px;
+        margin-bottom: 16px;
+        gap: 10px;
+    }
+}
