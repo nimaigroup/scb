@@ -10,7 +10,7 @@
   },
   "branding": {
     "siteTitle": "Santa Cruz Botanicals",
-    "tagline": "Bring the beauty and tranquility of the ocean into your home.",
+    "tagline": "Bring the beauty and tranquility<br>of the ocean into your home.",
     "logoSrc": "assets/logo/SC_Botanicals_Logo_transparent.png",
     "logoAlt": "Santa Cruz Botanicals Logo",
     "launchText": "Organic Sea Art"
@@ -30,25 +30,37 @@
       "id": "art-01",
       "title": "Pacific Sea Lace No. 1",
       "image": "assets/gallery/gallery_img_01.jpg",
-      "alt": "Pressed sea lace artwork in a light wood frame"
+      "alt": "Pressed sea lace artwork in a light wood frame",
+      "science": "Microcladia coulteri",
+      "size": "11 inch x 14 inch",
+      "description": "Short description of the artwork."
     },
     {
       "id": "art-02",
       "title": "Santa Cruz Bay Feather Boa",
       "image": "assets/gallery/gallery_img_02.jpg",
-      "alt": "Pressed feather boa kelp artwork"
+      "alt": "Pressed feather boa kelp artwork",
+      "science": "Egregia menziesii",
+      "size": "11 inch x 14 inch",
+      "description": "Short description of the artwork."
     },
     {
       "id": "art-03",
       "title": "Santa Cruz Coastal Flora",
       "image": "assets/gallery/gallery_img_03.jpg",
-      "alt": "Pressed coastal marine botanical"
+      "alt": "Pressed coastal marine botanical",
+      "science": "Prionitis lanceolata",
+      "size": "11 inch x 14 inch",
+      "description": "Short description of the artwork."
     },
     {
       "id": "art-04",
       "title": "Ocean Breeze Botanical",
       "image": "assets/gallery/gallery_img_04.jpg",
-      "alt": "Organic pressed seaweed art"
+      "alt": "Organic pressed seaweed art",
+      "science": "Chondracanthus exasperatus",
+      "size": "11 inch x 14 inch",
+      "description": "Short description of the artwork."
     }
   ],
   "footer": {

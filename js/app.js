@@ -8,11 +8,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         applyThemeConfig(config.theme);
         populatePageContent(config);
 
-        // 2. Initialize Features
-        initArtistStatementToggle();
-        initGalleryCarousel(config.gallery);
+        // 2. Expand Top Divider Line Smoothly on Load
+        setTimeout(() => {
+            const topDivider = document.getElementById('topDividerLine');
+            if (topDivider) topDivider.classList.add('expanded');
+        }, 100);
 
-        // 3. Trigger Smooth Fade In
+        // 3. Initialize Features
+        initArtistStatementToggle();
+        initNativeCenteredCarousel(config.gallery);
+
+        // 4. Option A: Intersection Observer for Statement Cue
+        initStatementCueObserver();
+
+        // 5. Trigger Page Fade In
         document.body.classList.remove('loading');
 
     } catch (error) {
@@ -37,19 +46,25 @@ function applyThemeConfig(theme) {
 }
 
 function populatePageContent(config) {
-    // Branding
     if (config.branding) {
-        if (config.branding.siteTitle) document.title = config.branding.siteTitle;
-        if (config.branding.tagline) document.getElementById('siteTagline').textContent = config.branding.tagline;
-        if (config.branding.launchText) document.getElementById('siteLaunchText').textContent = config.branding.launchText;
+        if (config.branding.siteTitle) {
+            document.title = config.branding.siteTitle;
+            const titleEl = document.getElementById('siteTitle');
+            if (titleEl) titleEl.textContent = config.branding.siteTitle;
+        }
+        if (config.branding.tagline) {
+            const taglineEl = document.getElementById('siteTagline');
+            if (taglineEl) taglineEl.innerHTML = config.branding.tagline;
+        }
         if (config.branding.logoSrc) {
             const logoEl = document.getElementById('siteLogo');
-            logoEl.src = config.branding.logoSrc;
-            logoEl.alt = config.branding.logoAlt || 'Logo';
+            if (logoEl) {
+                logoEl.src = config.branding.logoSrc;
+                logoEl.alt = config.branding.logoAlt || 'Logo';
+            }
         }
     }
 
-    // Artist Statement
     if (config.artistStatement) {
         if (config.artistStatement.buttonLabel) {
             document.getElementById('statementBtnLabel').textContent = config.artistStatement.buttonLabel;
@@ -62,7 +77,6 @@ function populatePageContent(config) {
         }
     }
 
-    // Footer
     if (config.footer) {
         if (config.footer.copyrightText) document.getElementById('copyrightText').textContent = config.footer.copyrightText;
         if (config.footer.creditLabel) {
@@ -74,7 +88,7 @@ function populatePageContent(config) {
 }
 
 /* ==========================================================================
-   2. Artist Statement Toggle
+   2. Artist Statement Toggle & Intersection Cue
    ========================================================================== */
 function initArtistStatementToggle() {
     const toggleBtn = document.getElementById('toggleStatementBtn');
@@ -88,24 +102,43 @@ function initArtistStatementToggle() {
         toggleBtn.classList.toggle('active', isExpanded);
         dividerLine.classList.toggle('expanded', isExpanded);
         toggleBtn.setAttribute('aria-expanded', isExpanded);
+        toggleBtn.classList.remove('pulse-cue');
     });
 }
 
+function initStatementCueObserver() {
+    const toggleBtn = document.getElementById('toggleStatementBtn');
+    if (!toggleBtn || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !toggleBtn.classList.contains('active')) {
+                toggleBtn.classList.add('pulse-cue');
+            }
+        });
+    }, { threshold: 0.8 });
+
+    observer.observe(toggleBtn);
+}
+
 /* ==========================================================================
-   3. Carousel Renderer & Interactive Controls
+   3. Native CSS Snap-Centered Gallery Carousel Engine
    ========================================================================== */
-function initGalleryCarousel(artworks) {
+function initNativeCenteredCarousel(artworks) {
     const track = document.getElementById('carouselTrack');
     const prevBtn = document.getElementById('carouselPrev');
     const nextBtn = document.getElementById('carouselNext');
     const dotsContainer = document.getElementById('carouselDots');
-    const captionContainer = document.getElementById('carouselCaption');
+
+    const titleEl = document.getElementById('artTitle');
+    const scienceEl = document.getElementById('artScience');
 
     if (!track || !artworks || artworks.length === 0) return;
 
+    const total = artworks.length;
     let currentIndex = 0;
 
-    // Render Carousel Slides
+    // Render Track HTML
     track.innerHTML = artworks.map((art, idx) => `
         <div class="carousel-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}">
             <img src="${art.image}" alt="${art.alt}">
@@ -120,46 +153,57 @@ function initGalleryCarousel(artworks) {
     const slides = track.querySelectorAll('.carousel-slide');
     const dots = dotsContainer.querySelectorAll('.dot');
 
-    function updateCarousel(index) {
-        currentIndex = index;
-        slides[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    function updatePlacard(index) {
+        const art = artworks[index];
+        if (titleEl) titleEl.textContent = art.title || '';
+        if (scienceEl) scienceEl.textContent = art.science || '';
+    }
 
+    function setActiveIndex(index) {
+        currentIndex = index;
+
+        // Native Smooth Scroll to Center Slide
+        slides[currentIndex].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
+
+        // Update CSS Visual Classes
         slides.forEach((s, i) => s.classList.toggle('active', i === currentIndex));
         dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
 
-        if (captionContainer) {
-            captionContainer.textContent = artworks[currentIndex].title;
-        }
+        // Update Bounded Arrow States
+        if (prevBtn) prevBtn.classList.toggle('disabled', currentIndex === 0);
+        if (nextBtn) nextBtn.classList.toggle('disabled', currentIndex === total - 1);
+
+        updatePlacard(currentIndex);
     }
 
-    // Next / Prev Button Click Handling
-    prevBtn.addEventListener('click', () => {
-        const nextIdx = currentIndex === 0 ? artworks.length - 1 : currentIndex - 1;
-        updateCarousel(nextIdx);
+    // Navigation Controls
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) setActiveIndex(currentIndex - 1);
     });
 
-    nextBtn.addEventListener('click', () => {
-        const nextIdx = currentIndex === artworks.length - 1 ? 0 : currentIndex + 1;
-        updateCarousel(nextIdx);
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        if (currentIndex < total - 1) setActiveIndex(currentIndex + 1);
     });
 
-    // Dot Click Navigation
     dotsContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('dot')) {
             const targetIdx = parseInt(e.target.dataset.index, 10);
-            updateCarousel(targetIdx);
+            setActiveIndex(targetIdx);
         }
     });
 
-    // Direct Slide Click Navigation
     slides.forEach(slide => {
         slide.addEventListener('click', () => {
             const targetIdx = parseInt(slide.dataset.index, 10);
-            updateCarousel(targetIdx);
+            setActiveIndex(targetIdx);
         });
     });
 
-    // Scroll Observer for Touch Swiping Synchronization
+    // Scroll Observer for Native Touch Swiping Synchronization
     let isScrolling;
     track.addEventListener('scroll', () => {
         window.clearTimeout(isScrolling);
@@ -180,17 +224,19 @@ function initGalleryCarousel(artworks) {
 
             if (currentIndex !== closestIdx) {
                 currentIndex = closestIdx;
+
                 slides.forEach((s, i) => s.classList.toggle('active', i === currentIndex));
                 dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-                if (captionContainer) {
-                    captionContainer.textContent = artworks[currentIndex].title;
-                }
+
+                if (prevBtn) prevBtn.classList.toggle('disabled', currentIndex === 0);
+                if (nextBtn) nextBtn.classList.toggle('disabled', currentIndex === total - 1);
+
+                updatePlacard(currentIndex);
             }
         }, 50);
     });
 
-    // Initial Caption Injection
-    if (captionContainer) {
-        captionContainer.textContent = artworks[0].title;
-    }
+    // Initial State Setup
+    if (prevBtn) prevBtn.classList.add('disabled');
+    updatePlacard(0);
 }

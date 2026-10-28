@@ -19,46 +19,59 @@
 <body class="loading">
 
 <main class="page-container">
-    <!-- Split Header Banner -->
-    <header class="site-header">
-        <div class="header-left">
-            <img id="siteLogo" src="" alt="" class="logo">
-        </div>
-        <div class="header-right">
-            <h1 id="siteLaunchText" class="launch-text"></h1>
-            <p id="siteTagline" class="tagline"></p>
-        </div>
-    </header>
+    <!-- White Card Frame Box -->
+    <div class="card-box">
 
-    <!-- Hero Carousel Section -->
-    <section class="carousel-section" aria-label="Artwork Gallery">
-        <div class="carousel-wrapper">
-            <button id="carouselPrev" class="carousel-btn prev" aria-label="Previous Image">❮</button>
+        <!-- Split Header Banner -->
+        <header class="site-header">
+            <div class="header-left">
+                <img id="siteLogo" src="" alt="" class="logo">
+            </div>
+            <div class="header-right title-block">
+                <h1 id="siteTitle" class="site-title-text"></h1>
+                <p id="siteTagline" class="tagline"></p>
+            </div>
+        </header>
 
-            <div id="carouselTrack" class="carousel-track">
-                <!-- Dynamically populated via config.json -->
+        <!-- Dynamic Expanding Top Divider Line -->
+        <div id="topDividerLine" class="divider"></div>
+
+        <!-- Hero Native-Snap Carousel Section -->
+        <section class="carousel-section" aria-label="Artwork Gallery">
+            <div class="carousel-wrapper">
+                <button id="carouselPrev" class="carousel-btn prev" aria-label="Previous Image">❮</button>
+
+                <div id="carouselTrack" class="carousel-track">
+                    <!-- Dynamically populated via config.json -->
+                </div>
+
+                <button id="carouselNext" class="carousel-btn next" aria-label="Next Image">❯</button>
             </div>
 
-            <button id="carouselNext" class="carousel-btn next" aria-label="Next Image">❯</button>
-        </div>
+            <!-- Museum Placard (Title + Scientific Name) -->
+            <div id="carouselCaption" class="carousel-caption">
+                <h3 id="artTitle" class="art-title"></h3>
+                <p id="artScience" class="art-science"></p>
+            </div>
 
-        <div id="carouselCaption" class="carousel-caption"></div>
-        <div id="carouselDots" class="carousel-dots"></div>
-    </section>
+            <div id="carouselDots" class="carousel-dots"></div>
+        </section>
 
-    <!-- Interactive Expanding Divider -->
-    <div id="dividerLine" class="divider"></div>
+        <!-- Interactive Expanding Bottom Divider Line -->
+        <div id="dividerLine" class="divider"></div>
 
-    <!-- Toggle Button -->
-    <button id="toggleStatementBtn" class="toggle-btn" aria-expanded="false" aria-controls="artistStatement">
-        <span id="statementBtnLabel">Artist Statement</span>
-        <span class="arrow">▼</span>
-    </button>
+        <!-- Toggle Button -->
+        <button id="toggleStatementBtn" class="toggle-btn" aria-expanded="false" aria-controls="artistStatement">
+            <span id="statementBtnLabel">Artist Statement</span>
+            <span class="arrow">▼</span>
+        </button>
 
-    <!-- Collapsible Artist Statement Section -->
-    <section id="artistStatement" class="artist-statement">
-        <!-- Dynamically populated via config.json -->
-    </section>
+        <!-- Collapsible Artist Statement Section -->
+        <section id="artistStatement" class="artist-statement">
+            <!-- Dynamically populated via config.json -->
+        </section>
+
+    </div>
 </main>
 
 <footer>
