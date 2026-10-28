@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const config = await response.json();
 
-        // 1. Apply Dynamic Themes & Content
+        // 1. Dynamic CSS Variables & Page Content Injection
         applyThemeConfig(config.theme);
         populatePageContent(config);
 
@@ -12,18 +12,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         initArtistStatementToggle();
         initGalleryCarousel(config.gallery);
 
-        // 3. Remove Loading Class for Smooth Fade-In
+        // 3. Trigger Smooth Fade In
         document.body.classList.remove('loading');
 
     } catch (error) {
         console.error('Error loading site configuration:', error);
-        // Fallback: reveal body if fetch error occurs
         document.body.classList.remove('loading');
     }
 });
 
 /* ==========================================================================
-   1. Dynamic CSS Variables & DOM Population
+   1. Dynamic CSS Variables & Content Population
    ========================================================================== */
 function applyThemeConfig(theme) {
     if (!theme) return;
@@ -93,7 +92,7 @@ function initArtistStatementToggle() {
 }
 
 /* ==========================================================================
-   3. Carousel Renderer & Interactive Control
+   3. Carousel Renderer & Interactive Controls
    ========================================================================== */
 function initGalleryCarousel(artworks) {
     const track = document.getElementById('carouselTrack');
@@ -106,14 +105,14 @@ function initGalleryCarousel(artworks) {
 
     let currentIndex = 0;
 
-    // Render Slides
+    // Render Carousel Slides
     track.innerHTML = artworks.map((art, idx) => `
         <div class="carousel-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}">
             <img src="${art.image}" alt="${art.alt}">
         </div>
     `).join('');
 
-    // Render Dots
+    // Render Pagination Dots
     dotsContainer.innerHTML = artworks.map((_, idx) => `
         <span class="dot ${idx === 0 ? 'active' : ''}" data-index="${idx}"></span>
     `).join('');
@@ -133,7 +132,7 @@ function initGalleryCarousel(artworks) {
         }
     }
 
-    // Navigation Listeners
+    // Next / Prev Button Click Handling
     prevBtn.addEventListener('click', () => {
         const nextIdx = currentIndex === 0 ? artworks.length - 1 : currentIndex - 1;
         updateCarousel(nextIdx);
@@ -144,6 +143,7 @@ function initGalleryCarousel(artworks) {
         updateCarousel(nextIdx);
     });
 
+    // Dot Click Navigation
     dotsContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('dot')) {
             const targetIdx = parseInt(e.target.dataset.index, 10);
@@ -151,6 +151,7 @@ function initGalleryCarousel(artworks) {
         }
     });
 
+    // Direct Slide Click Navigation
     slides.forEach(slide => {
         slide.addEventListener('click', () => {
             const targetIdx = parseInt(slide.dataset.index, 10);
@@ -158,7 +159,7 @@ function initGalleryCarousel(artworks) {
         });
     });
 
-    // Scroll Sync for Swiping
+    // Scroll Observer for Touch Swiping Synchronization
     let isScrolling;
     track.addEventListener('scroll', () => {
         window.clearTimeout(isScrolling);
@@ -188,6 +189,7 @@ function initGalleryCarousel(artworks) {
         }, 50);
     });
 
+    // Initial Caption Injection
     if (captionContainer) {
         captionContainer.textContent = artworks[0].title;
     }

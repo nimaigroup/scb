@@ -18,20 +18,25 @@
 </head>
 <body class="loading">
 
-<main class="container">
-    <p id="siteTagline" class="tagline"></p>
+<main class="page-container">
+    <!-- Split Header Banner -->
+    <header class="site-header">
+        <div class="header-left">
+            <img id="siteLogo" src="" alt="" class="logo">
+        </div>
+        <div class="header-right">
+            <h1 id="siteLaunchText" class="launch-text"></h1>
+            <p id="siteTagline" class="tagline"></p>
+        </div>
+    </header>
 
-    <img id="siteLogo" src="" alt="" class="logo">
-
-    <h1 id="siteLaunchText" class="launch-text"></h1>
-
-    <!-- Carousel Gallery Section -->
+    <!-- Hero Carousel Section -->
     <section class="carousel-section" aria-label="Artwork Gallery">
         <div class="carousel-wrapper">
             <button id="carouselPrev" class="carousel-btn prev" aria-label="Previous Image">❮</button>
 
             <div id="carouselTrack" class="carousel-track">
-                <!-- Dynamically populated via config -->
+                <!-- Dynamically populated via config.json -->
             </div>
 
             <button id="carouselNext" class="carousel-btn next" aria-label="Next Image">❯</button>
@@ -50,9 +55,9 @@
         <span class="arrow">▼</span>
     </button>
 
-    <!-- Collapsible Artist Statement section -->
+    <!-- Collapsible Artist Statement Section -->
     <section id="artistStatement" class="artist-statement">
-        <!-- Dynamically populated via config -->
+        <!-- Dynamically populated via config.json -->
     </section>
 </main>
 

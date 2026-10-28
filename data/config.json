@@ -9,7 +9,7 @@
     "textMuted": "#4a5d59"
   },
   "branding": {
-    "siteTitle": "Santa Cruz Botanicals — Organic Sea Art",
+    "siteTitle": "Santa Cruz Botanicals",
     "tagline": "Bring the beauty and tranquility of the ocean into your home.",
     "logoSrc": "assets/logo/SC_Botanicals_Logo_transparent.png",
     "logoAlt": "Santa Cruz Botanicals Logo",
@@ -28,7 +28,7 @@
   "gallery": [
     {
       "id": "art-01",
-      "title": "Organic Sea Art No. 1",
+      "title": "Pacific Sea Lace No. 1",
       "image": "assets/gallery/gallery_img_01.jpg",
       "alt": "Pressed sea lace artwork in a light wood frame"
     },
