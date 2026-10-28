@@ -28,39 +28,43 @@
   "gallery": [
     {
       "id": "art-01",
-      "title": "Pacific Sea Lace No. 1",
+      "title": "Feather Boa Kelp",
       "image": "assets/gallery/gallery_img_01.jpg",
       "alt": "Pressed sea lace artwork in a light wood frame",
-      "science": "Microcladia coulteri",
+      "science": "Egregia menziesii",
+      "location": "Sunny Cove Beach - Santa Cruz, CA",
       "size": "11 inch x 14 inch",
-      "description": "Short description of the artwork."
+      "description": "Feather Boa Kelp is a distinctive brown seaweed with a long, flexible central stem and numerous narrow, leaflike blades. Its feathered appearance resembles a decorative boa. Found along rocky shorelines, this resilient kelp sways with ocean currents and provides important habitat for marine life."
     },
     {
       "id": "art-02",
-      "title": "Santa Cruz Bay Feather Boa",
+      "title": "Red Feather Seaweed ",
       "image": "assets/gallery/gallery_img_02.jpg",
-      "alt": "Pressed feather boa kelp artwork",
-      "science": "Egregia menziesii",
+      "alt": "Pressed red feather seaweed artwork",
+      "science": "Pterosiphonia",
+      "location": "Davenport Beach - Davenport, CA",
       "size": "11 inch x 14 inch",
-      "description": "Short description of the artwork."
+      "description": "This delicate red seaweed has intricate, featherlike branches in shades of burgundy, crimson, and deep purple. Its fine structure creates a beautiful, lace-like appearance. Red algae of this type grow attached to rocks and other marine surfaces along the California coast.\n"
     },
     {
       "id": "art-03",
-      "title": "Santa Cruz Coastal Flora",
+      "title": "Feather Boa Kelp",
       "image": "assets/gallery/gallery_img_03.jpg",
-      "alt": "Pressed coastal marine botanical",
-      "science": "Prionitis lanceolata",
+      "alt": "Pressed feather boa kelp artwork",
+      "science": "Egregia Menziesii",
+      "location": "Michel’s Cove - Santa Cruz, CA",
       "size": "11 inch x 14 inch",
-      "description": "Short description of the artwork."
+      "description": "Feather Boa Kelp is a beautiful brown seaweed native to the Pacific Coast, including Santa Cruz, California. Named for its resemblance to a long, feathery boa, this kelp features slender, ribbon-like fronds adorned with delicate leaflets and small air bladders. Its colors range from golden olive to deep brown. Growing along rocky shorelines, Feather Boa sways gracefully with the ocean currents, providing shelter and habitat for a variety of marine creatures.\n"
     },
     {
       "id": "art-04",
-      "title": "Ocean Breeze Botanical",
+      "title": "Turkish Towel",
       "image": "assets/gallery/gallery_img_04.jpg",
-      "alt": "Organic pressed seaweed art",
+      "alt": "Pressed Turkish Towel seaweed art",
       "science": "Chondracanthus exasperatus",
+      "location": "Mitchelle Cove - Santa Cruz, CA",
       "size": "11 inch x 14 inch",
-      "description": "Short description of the artwork."
+      "description": "Turkish Towel is a red seaweed commonly found along the rocky shores of Santa Cruz, California. Its broad, flattened blades range from deep burgundy to reddish-purple and often have a textured surface. This beautiful marine alga grows attached to rocks in the intertidal and shallow subtidal zones, providing habitat for small marine organisms."
     }
   ],
   "footer": {
